@@ -3,11 +3,34 @@
 <head>
     <meta charset="utf-8" />
     <title>Calculator</title>
-    <link rel="stylesheet" href="styles/styles.css.css" />
+    <link rel="stylesheet" href="styles/styles.css" />
     <script src="vendors/jquery.min.js"></script>
     <script src="scripts/client.js"></script>
 </head>
 <body>
-    <h1>Hello World</h1>
+    <h1>Calculator</h1>
+    <div id="input1">
+        <input type="number" id="firstVal">
+    </div>
+    <section id="dropDownContainer">
+        <select id="dropDown">
+            <!-- <option>choose a mathematical operation</option> -->
+            <option aria-placeholder="chooseOption" id="option"></option>
+            <option value="multiply">*</option>
+            <option value="divide">/</option>
+            <option value="add">+</option>
+            <option value="subtract">-</option>
+        </select> 
+    </section> 
+    <div id="input2">
+        <input type="number" id="secondVal">
+    </div>
+    <div id="buttons">
+        <button id="calculateBtn">Calculate</button>
+        <button id="clearBtn">Clear</button>
+    </div>
+    <div id="mainContainer">
+
+    </div>
 </body>
 </html>
