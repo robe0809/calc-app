@@ -9,76 +9,47 @@ class Operation {
 $(document).ready(readyNow);
 // event listeners
 function readyNow () {
-$('#calculateBtn').on('click', multiply);
-$('#calculateBtn').on('click', add);
-$('#calculateBtn').on('click', subtract);
-$('#calculateBtn').on('click', divide);
+$('#calculateBtn').on('click', calculate);
+$('#clearBtn').on('click', clear);
 }
-function multiply () {
-    let multiplication = new Operation($("#firstVal").val(), $("#secondVal").val(), $('#dropDown :selected').val());
-    if($('#dropDown :selected').text() === '*') {
+
+function calculate () {
+    console.log('button clicked in calculate');
+    let firstVal = $('#firstVal').val();
+    let secondVal = $('#secondVal').val();
+    let operator = $('#dropDown :selected').val();
+    let calculation = new Operation(firstVal, secondVal, operator);
         $.ajax({
-            method: 'POST',
-            url: '/multiplication',
-            data: multiplication,
-            success: function (response) {
-                console.log('we have recieved:', response); 
-                getMultiply();
-            }
+        method: 'POST',
+        url: '/calculation',
+        data: calculation,
+        success: function (response) {
+            console.log('we have recieved:', response);
+            getCalculation();
+        }, 
+        error: function (response) {
+            console.log('error', response);
+            alert('Please enter Operation');
+        }
         })
-    } // end if multiply
-}// end multiply 
-function getMultiply () {
+}
+function getCalculation () {
     $.ajax({
         method: 'GET',
-        url:'/multiplication',
+        url: '/calculation',
         success: function (response) {
-            console.log('multiplication :', response);
+            console.log('we have a response: ', response);
+            let firstVal = $('#firstVal').val();
+            let secondVal = $('#secondVal').val();
+            let operator = $('#dropDown :selected').text();
+            let calculation = new Operation(firstVal, secondVal, operator);
+            $('#mainContainer').append('<li>' + firstVal + ' ' + operator + ' ' + secondVal + ' ' + '=' + response.result + '</li>');
         }
     })
 }
-
-function add () {
-    let addition = new Operation($("#firstVal").val(), $("#secondVal").val(), $('#dropDown :selected').text());
-    if($('#dropDown :selected').text() === '+') {
-            console.log('WOOOOO');
-        $.ajax({
-            method: 'POST',
-            url: '/addition',
-            data: addition,
-            success: function (response) {
-                console.log('we have recieved:', response); 
-            }
-        })
-    }// end if addition 
-}// end addition 
-
-function subtract () {
-    let subtraction = new Operation($("#firstVal").val(), $("#secondVal").val(), $('#dropDown :selected').text());
-    if($('#dropDown :selected').text() === '-') {
-            console.log('WOOOOO');
-        $.ajax({
-            method: 'POST',
-            url: '/subtraction',
-            data: subtraction,
-            success: function (response) {
-                console.log('we have recieved:', response); 
-            }
-        })
-    }// end if subtraction 
-}// end subtraction
-
-function divide () {
-    let division = new Operation($("#firstVal").val(), $("#secondVal").val(), $('#dropDown :selected').text());
-    if($('#dropDown :selected').text() === '/') {
-            console.log('WOOOOO');
-        $.ajax({
-            method: 'POST',
-            url: '/division',
-            data: division,
-            success: function (response) {
-                console.log('we have recieved:', response); 
-            }
-        })
-    }// end if division 
-}// end division
+function clear () {
+    $('#mainContainer').empty();
+    $('#dropDown option:eq(0)').attr('selected','selected');
+    $('#firstVal').val('');
+    $('#secondVal').val('');
+}
