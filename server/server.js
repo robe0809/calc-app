@@ -11,6 +11,7 @@ app.use(express.static('server/public'));
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.post('/calculation', function (req, res) {
+    console.log(req.body);
     operationCalc.math(req.body);
     res.sendStatus(201);
 })

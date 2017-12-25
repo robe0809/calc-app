@@ -47,9 +47,11 @@ function getCalculation () {
         }
     })
 }
+// clear dropdown menu only works once if you clear it and enter more operators and try to 
+// clear again it does not clear twice. try and fix.
 function clear () {
     $('#mainContainer').empty();
-    $('#dropDown option:eq(0)').attr('selected','selected');
+    $('#dropDown option:eq(0)').attr('selected','selected'); 
     $('#firstVal').val('');
     $('#secondVal').val('');
 }
