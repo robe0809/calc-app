@@ -4,9 +4,6 @@ const bodyParser = require('body-parser');
 const operationCalc = require('./calc.js');
 const port = 9999;
 
-// operation variables
-
-
 app.use(express.static('server/public'));
 app.use(bodyParser.urlencoded({extended: true}));
 

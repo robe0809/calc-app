@@ -1,7 +1,9 @@
+// object to hold result of calculation function 
 let calc = {
     result: 0
 }
 
+// calculation function 
 function math (obj) {
     let operation = obj.type;
     if(operation === 'multiply') {

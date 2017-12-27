@@ -12,7 +12,7 @@ function readyNow () {
     $('#calculateBtn').on('click', calculate);
     $('#clearBtn').on('click', clear);
 }
-
+// calculate function that takes a new object and POSTS it to the server
 function calculate () {
     console.log('button clicked in calculate');
     let firstVal = $('#firstVal').val();
@@ -25,7 +25,7 @@ function calculate () {
         data: calculation,
         success: function (response) {
             console.log('we have recieved:', response);
-            getCalculation();
+            getCalculation(); 
         }, 
         error: function (response) {
             console.log('error', response);
@@ -33,6 +33,7 @@ function calculate () {
         }
         })
 }
+// get funciton, gets data from the server and appends values to the DOM.
 function getCalculation () {
     $.ajax({
         method: 'GET',
@@ -48,7 +49,7 @@ function getCalculation () {
     })
 }
 // clear dropdown menu only works once if you clear it and enter more operators and try to 
-// clear again it does not clear twice. try and fix.
+// clear again it does not clear twice. Need to fix.
 function clear () {
     $('#mainContainer').empty();
     $('#dropDown option:eq(0)').attr('selected','selected'); 
