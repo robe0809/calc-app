@@ -9,8 +9,8 @@ class Operation {
 $(document).ready(readyNow);
 // event listeners
 function readyNow () {
-$('#calculateBtn').on('click', calculate);
-$('#clearBtn').on('click', clear);
+    $('#calculateBtn').on('click', calculate);
+    $('#clearBtn').on('click', clear);
 }
 
 function calculate () {
@@ -43,7 +43,7 @@ function getCalculation () {
             let secondVal = $('#secondVal').val();
             let operator = $('#dropDown :selected').text();
             let calculation = new Operation(firstVal, secondVal, operator);
-            $('#mainContainer').append('<li>' + firstVal + ' ' + operator + ' ' + secondVal + ' ' + '=' + response.result + '</li>');
+            $('#mainContainer').append('<li>' + firstVal + ' ' + operator + ' ' + secondVal + ' ' + '=' + response.result.toFixed(2) + '</li>');
         }
     })
 }

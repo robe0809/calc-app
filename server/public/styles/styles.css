@@ -1,3 +1,60 @@
+body {
+    text-align: center;
+    width: 90%;
+    margin: 0 auto;
+    background-image: url('https://watchstreetconsulting.com/wp-content/uploads/2015/04/web_design_desk2.jpg');
+}
+header {
+    height: 100px;
+    text-align: center;
+}
+h1 {
+    position: relative;
+    top: 25px;
+    color: white;
+    font-size: 50px;
+}
+#content {
+    position: relative;
+    top: 50px;
+    text-align: center;
+    width: 50%;
+    margin:0 auto;
+}
+#mainContainer {
+    width: 25%;
+    margin: 0 auto;
+}
 input {
+    width: 225px; 
+    padding: 5px;
+    margin: 5px;
     display: inline-block;
+} 
+#input1 {
+    float: left;
+}
+#input2 {
+    float: right;
+}
+#dropDown {
+    width: 100%;
+}
+#dropDownContainer {
+    text-align: center;
+    padding: 10px;
+    display: inline-block;
+}
+#buttons {
+    margin: 20px;
+    padding: 20px;
+}
+ol {
+    color: white;
+    border-left: 2px solid white;
+    border-right: 2px solid white;
+}
+li {
+    position: relative;
+    padding: 5px;
 }
